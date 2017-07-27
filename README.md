@@ -15,6 +15,12 @@ A PyTorch implementation of alpha-GAN (https://arxiv.org/abs/1706.04987) with a 
 $ python train_mnist.py --output_path YOUR_SAVED_PATH
 ```
 
+While or after running, you will able to monitor the training progress on TensorBoard. Run
+```
+$ tensorboard --logdir=YOUR_SAVED_PATH/logs/ --port=6006
+```
+and access https://localhost:6006 (or the corresponding server URL) on your browser.
+
 ## References
 
 * Paper
