@@ -28,21 +28,21 @@ Parsing
 parser = argparse.ArgumentParser(description='Train alpha-GAN on MNIST')
 parser.add_argument('--code-size', type=int, default=50,
                     help='dimension of the latent codes (default: 50)')
-parser.add_argument('--lambda_', type=float, default=25.0,
+parser.add_argument('--lambda_', type=float, default=20.0,
                     help='parameter for the l1 reconstruction loss '
-                         '(default: 25.0)')
-parser.add_argument('--lr1', type=float, default=1e-3,
+                         '(default: 20.0)')
+parser.add_argument('--lr1', type=float, default=0.001,
                     help='learning rate for the encoder and the generator '
                          '(default: 0.001)')
-parser.add_argument('--lr2', type=float, default=1e-4,
+parser.add_argument('--lr2', type=float, default=0.0002,
                     help='learning rate for the input and code discriminators'
-                         '(default: 0.0001)')
+                         '(default: 0.0002)')
 parser.add_argument('--beta1', type=float, default=0.5,
                     help='beta1 parameter for Adam optimization (default: 0.5)')
 parser.add_argument('--beta2', type=float, default=0.9,
                     help='beta2 parameter for Adam optimization (default: 0.9)')
-parser.add_argument('--batch-size', type=int, default=32, metavar='N',
-                    help='input batch size for training (default: 32)')
+parser.add_argument('--batch-size', type=int, default=64, metavar='N',
+                    help='input batch size for training (default: 64)')
 parser.add_argument('--epochs', type=int, default=30, metavar='N',
                     help='number of epochs to train (default: 30)')
 parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -91,5 +91,5 @@ alphaGAN.train(train_loader, test_loader,
 """
 Generate new samples
 """
-x_generated = alphaGAN.generate(n=100)
-save_image(x_generated, '{}/new-samples.png'.format(args.output_path))
+x_generated = alphaGAN.generate(n=batch_size)
+save_image(x_generated.data, '{}/new-samples.png'.format(args.output_path))

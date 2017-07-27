@@ -1,7 +1,4 @@
-import torch
 import torch.nn as nn
-import torch.utils.data
-from torch.autograd import Variable
 
 """
 Base Neural Network Classes for alpha-GAN
